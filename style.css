@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://github.blog/wp-content/uploads/2023/04/1200.630-Global.png?resize=1200%2C630");
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: 8px 0 50px ;
+    gap:20px;
+    
+}
+
+h1,label{
+	font-weight: bold;
+	margin: 0;
+}
+
+
+#heading{
+	color: #FFFFFF;
+}
+
+span {
+	font-size: 12px;
+}
+
+
+button {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #06d5b3;
+	color: black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    
+}
+
+form {
+	background-color: rgb(238,152,152,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+    gap:30px;
+   
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+.container {
+	background-color: rgb(255,255,255,0.8);
+	border-radius: 10px;
+  	box-shadow: 0 20px 30px rgba(209, 200, 44, 0.25), 10px 20px 20px rgba(229, 174, 54, 0.22);
+	position: relative;
+	overflow: hidden;
+    display: flex;
+    flex-direction: column;
+	width: 900px;
+	max-width: 100%;
+	min-height: 500px;
+    justify-content: space-between;
+}
+
+.form-container {
+	position: absolute;
+	
+	top: 0;
+	height: 100%;
+}
+
+
+
+
+.log-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+}
+
+
+.overlay {
+	background: #583940;
+	background: -webkit-linear-gradient(to right, rgba(238, 152, 152, 0), rgba(255, 65, 108, 0));
+	background: linear-gradient(to right, rgba(225, 131, 114, 0), rgba(255, 65, 108, 0));
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+
+	
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 50%;
+    row-gap:30px;
+}
+
+
+.overlay-right {
+	right: 0;
+}
+
+
+select{
+    background-color: rgb(249, 244, 244);
+    border-radius: 10px;
+	border: 2px solid black;
+   
+	
+}
+h3{
+	background-color: #fec6cc;
+}
+.choose , .imgselect{
+    display: flex;
+	justify-content: center;
+   padding-right: 80px;
+    width: 400px;
+	gap:20px;
+}
+#slct, #slct1{
+    min-height: 30px;
+    min-width: 40px;
+    
+}
+
+img{
+    width:40px;
+    height: 40px;
+    border-radius: 10px;
+    
+}
+
+textarea {
+    border-radius: 10px;
+    border-width: 2px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid #130909;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+ label{
+    padding-left: 70px;
+    
+ }
+

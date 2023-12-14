@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body background="https://media.geeksforgeeks.org/wp-content/uploads/rk.png">
+    <h1 id="heading">CODE CONVERTOR</h1>
+	<div class="container" id="container">
+        
+		<div class="form-container log-in-container">
+            
+			<form action="#">
+        <div><h3>INPUT CODE</h3></div>
+                <div class="choose">
+                  
+                <label for="slct"><img src="python.jpeg" class="imagem__muda" alt="imge"></label>
+				<select class="slct" id="slct">
+                    
+          <option selected>Python</option>
+          <option value="Javascript">Javascript</option>
+          <option value="Typescript">Typescript</option>
+          <option value="Java">Java</option>
+          
+          <option value="Chash">C#</option>
+          <option value="Cpp">C++</option>
+          <option value="C">C</option>
+         
+                    
+
+                </select>
+            </div>
+            <div class="textarea">
+                
+                <textarea  id="txtarea" cols="50" rows="20"  placeholder="Input Code" ></textarea>
+            </div>
+				
+			</form>
+		</div>
+
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+                  <div class="imgselect">  
+                    <label for="slct1"><img src="python.jpeg" class="imagem__muda1" alt="imge"></label>
+                    <select class="slct1" id="slct1">
+                    
+                      <option selected>Python</option>
+                      <option value="Javascript">Javascript</option>
+                      <option value="Typescript">Typescript</option>
+                      <option value="Java">Java</option>
+                      
+                      
+                      
+                      <option value="Chash">C#</option>
+                      <option value="Cpp">C++</option>
+                      <option value="C">C</option>
+                    
+                </select>
+            </div>
+                <textarea  id="txt" cols="50" rows="25"  placeholder=" Output Code"></textarea>
+                <button type="submit" id="cp" onclick="clickbutton()">Copy-text</button>
+          
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script>
+        function clickbutton(){
+            let textarea = document.getElementById("txt");
+            textarea.select();
+            document.execCommand("copy");
+    };
+    const pic={Python:'python.jpeg',Javascript:'javascript.png',Typescript:'typescript.png',Java:'java.png',Chash:'chash.jpeg',
+            Cpp:'cpp.jpeg',C:'c.png'
+}
+    const selecionado = document.querySelector('#slct');
+var foto =  document.querySelector('.imagem__muda');
+
+selecionado.addEventListener('change', () => {
+    const selectedValue = selecionado.value;
+
+    if (pic.hasOwnProperty(selectedValue)) {
+        foto.src = pic[selectedValue];
+    } else {
+       
+        console.log('No image available for the selected language.');
+    }
+
+});
+
+const selecionado1 = document.querySelector('#slct1');
+var foto1 =  document.querySelector('.imagem__muda1');
+
+selecionado1.addEventListener('change', () => {
+    
+    const selectedValue = selecionado1.value;
+    if (pic.hasOwnProperty(selectedValue)) {
+        
+        foto1.src = pic[selectedValue];
+    } else {
+        
+        console.log('No image available for the selected language.');
+    }
+
+ 
+});
+
+
+function convertcode() {
+        const code = document.getElementById("txtarea").value;
+        const sourceLanguage = document.getElementById("slct").value;
+        const targetLanguage = document.getElementById("slct1").value;
+
+        fetch('/convert', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `code=${encodeURIComponent(code)}&source=${encodeURIComponent(sourceLanguage)}&target=${encodeURIComponent(targetLanguage)}`,
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Update the output textarea with the translated code
+            document.getElementById("txt").value = data;
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    </script>
+    <button type="submit" onclick="convertcode()">Convert</button>
+</body>
+</html>
